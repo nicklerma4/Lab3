@@ -41,5 +41,14 @@ for line in open_file:
             file.write(line)
             file.close()
             
+print("There were", total_requests, "total requests in the time period represented in the log.")
+
+for d in day_count:
+    print("There were", day_count[d]," requests during weekday ", d, " during the time period represented in the log.")
+        
+for m in month_count:
+    print("There were", month_count[m]," requests during month ", m, " during the time period represented in th log.")
+    
+            
  open_file.close()
             
