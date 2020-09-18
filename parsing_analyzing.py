@@ -20,5 +20,24 @@ monthfile = {1:"January.txt", 2:"February.txt", 3:"March.txt", 4:"April.txt", 5:
 for line in open_file:
     total_requests += 1
         
-# Split lines into necessary elements
+    # Split lines into necessary elements
     line_elements = re.split("([0-9]{2}/[A-Za-z]{3}/[0-9]{4}):([0-9]{2}:[0-9]{2}:[0-9]{2}).*\"([A-Z]+) (.+?) ([HTTP].+)\" ([0-9]{3})", line)
+    
+    # Check if regex worked for each line
+    if len(line_elements) >= 7:
+        
+        # Add to the day and month counters
+        date = datetime.strptime(line_elements[1], "%d/%b/%Y")
+        day_count[date.isoweekday()] += 1
+        month_count[date.month] += 1
+        
+        # Checks for specific month file, if one has been created add line to file otherwise create the file and write the line to the file
+        if not os.path.exists(monthfile[date.month]):
+            file = open(monthfile[date.month], "w")
+            file.write(line)
+            file.close()
+        else:
+            file = open(monthfile[date.month], "a")
+            file.write(line)
+            file.close()
+            
