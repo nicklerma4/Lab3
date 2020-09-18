@@ -41,3 +41,5 @@ for line in open_file:
             file.write(line)
             file.close()
             
+ open_file.close()
+            
