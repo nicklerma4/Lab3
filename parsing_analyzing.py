@@ -19,3 +19,6 @@ monthfile = {1:"January.txt", 2:"February.txt", 3:"March.txt", 4:"April.txt", 5:
 # Reads the file line by line and adds to the total_requests counter
 for line in open_file:
     total_requests += 1
+        
+# Split lines into necessary elements
+    line_elements = re.split("([0-9]{2}/[A-Za-z]{3}/[0-9]{4}):([0-9]{2}:[0-9]{2}:[0-9]{2}).*\"([A-Z]+) (.+?) ([HTTP].+)\" ([0-9]{3})", line)
