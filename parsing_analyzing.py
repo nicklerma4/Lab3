@@ -40,6 +40,14 @@ for line in open_file:
             file = open(monthfile[date.month], "a")
             file.write(line)
             file.close()
+
+# Determine the most requested file
+most_requested = "index.html"
+most_count = file_count["index.html"]
+for filer, count in file_count.items():
+    if count > most_count:
+        most_requested = filer
+        most_count = file_count[filer]
             
 print("There were", total_requests, "total requests in the time period represented in the log.")
 
