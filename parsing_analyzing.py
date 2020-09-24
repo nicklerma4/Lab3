@@ -41,13 +41,21 @@ for line in open_file:
             file.write(line)
             file.close()
 
-# Determine the most requested file
+# Determine most requested file
 most_requested = "index.html"
 most_count = file_count["index.html"]
 for filer, count in file_count.items():
     if count > most_count:
         most_requested = filer
         most_count = file_count[filer]
+        
+# Determine least requested file
+least_requested = "index.html"
+least_count = file_count["index.html"]
+for filer, count in file_count.items():
+    if count < least_count:
+        least_requested = filer
+        least_count = file_count[filer]
             
 print("There were", total_requests, "total requests in the time period represented in the log.")
 
