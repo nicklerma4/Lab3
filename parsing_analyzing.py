@@ -10,6 +10,9 @@ open_file = open("local_copy.log")
 total_requests = 0
 month_count = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0, 11:0, 12:0}
 day_count = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0}
+fail_count = 0
+redirected_count = 0
+success_count = 0
 file_count = {"index.html":0}
 
 # Define month file names
