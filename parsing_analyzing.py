@@ -43,6 +43,24 @@ for line in open_file:
             file = open(monthfile[date.month], "a")
             file.write(line)
             file.close()
+        # Add to the HTTP status code counters
+        if line_elements[6] =='200':
+            success_count += 1
+        elif line_elements[6] == '302' or line_elements[6] == '304' or line_elements[6] =='306':
+            redirected_count += 1
+        else:
+            fail_count += 1
+            
+        # Add to the most requested file counter
+        if line_elements[4] in file_count:
+            file_count[line_elements[4]] += 1
+        else:
+            file_count[line_elements[4]] = 1
+            
+    # If regex did not work
+else:
+    error_count += 1
+    errors.append(line)
 
 # Determine most requested file
 most_requested = "index.html"
