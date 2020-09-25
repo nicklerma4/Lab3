@@ -85,6 +85,9 @@ for d in day_count:
         
 for m in month_count:
     print("There were", month_count[m]," requests during month ", m, " during the time period represented in th log.")
+print(round(((fail_count/total_requests)*100),2), " percent of all requests were not successful.")
+      
+print(round(((redirected_count/total_requests)*100),2), " percent of all requests were redirected somewhere else.")
 
 print("The most requested file was", most_requested, "with a total of", most_count, "requests.")
 
