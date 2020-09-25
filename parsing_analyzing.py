@@ -64,7 +64,10 @@ for d in day_count:
         
 for m in month_count:
     print("There were", month_count[m]," requests during month ", m, " during the time period represented in th log.")
-    
+
+print("The most requested file was", most_requested, "with a total of", most_count, "requests.")
+
+print("The least requested file was", least_requested, "with a total of", least_count, "requests.")
             
  open_file.close()
             
